@@ -29,19 +29,19 @@ class Home extends React.Component {
                 <th>Dependentes</th>
                 <th>Desconto IRPF</th>
               </tr>
-              <tbody>
-                {dadosFuncionarios && dadosFuncionarios.map((funcionario) => (
-                  <tr key={ funcionario.nome }>
-                    <td>{ funcionario.nome }</td>
-                    <td>{ funcionario.cpf }</td>
-                    <td>{ funcionario.salario }</td>
-                    <td>{ funcionario.desconto }</td>
-                    <td>{ funcionario.dependentes }</td>
-                    <td>{ funcionario.valorADeduzir }</td>
-                  </tr>
-                ))}
-              </tbody>
             </thead>
+            <tbody>
+              {dadosFuncionarios && dadosFuncionarios.map((funcionario) => (
+                <tr key={ funcionario.nome }>
+                  <td>{ funcionario.nome }</td>
+                  <td>{ funcionario.cpf }</td>
+                  <td>{ funcionario.salario }</td>
+                  <td>{ funcionario.desconto }</td>
+                  <td>{ funcionario.dependentes }</td>
+                  <td>{ funcionario.valorADeduzir }</td>
+                </tr>
+              ))}
+            </tbody>            
           </table>
         </section>
       </div>
