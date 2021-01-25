@@ -1,7 +1,7 @@
 import { createStore, combineReducers, compose } from 'redux';
 import reducer from '../reducer';
 
-const rootReducer = combineReducers({reducer})
+const rootReducer = combineReducers({ reducer })
 
 const composeWithDevTools = (
   typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
