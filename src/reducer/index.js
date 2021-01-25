@@ -7,7 +7,7 @@ function reducer(state = INITIAL_STATE, action) {
     case ADICIONAR_FUNCIONARIO:
       return {...state, funcionarios: [...state.funcionarios, action.funcionario]};
     case EXCLUIR_FUNCIONARIO:
-      return { ...state, funcionarios: [state.funcionarios.filter((funcionario) => funcionario.nome !== action.nome)]}
+      return {funcionarios: state.funcionarios.filter((funcionario) => funcionario.idFuncionario !== action.id)};
     default:
       return state;
   }

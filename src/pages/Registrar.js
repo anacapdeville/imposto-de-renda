@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { adicionarFuncionario } from '../actions';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BsFillHouseFill } from 'react-icons/bs';
 
 class Registrar extends React.Component {
   constructor() {
@@ -38,7 +39,12 @@ class Registrar extends React.Component {
     } else if(salario > 4664.68) {
       valorADeduzir = (salarioBase * 27.5 / 100) - 869.36;
     }
-    const funcionario = { nome, cpf, salario, desconto, dependentes, valorADeduzir };
+    let idFuncionario = 0;
+    const { dadosFuncionarios } = this.props; 
+    if (dadosFuncionarios) {
+      idFuncionario = dadosFuncionarios.length;
+    }
+    const funcionario = { nome, cpf, salario, desconto, dependentes, valorADeduzir, idFuncionario };
     const { registrandoFuncionario } = this.props;
     registrandoFuncionario(funcionario);
   }
@@ -46,6 +52,7 @@ class Registrar extends React.Component {
   render() {
     return (
       <div>
+        <Link to="/"><button type="button"><BsFillHouseFill size={ 20 } /></button></Link>
         <h1>Registrar funcionario</h1>
         <form onSubmit={ this.enviandoDadosFuncionario }>
           <label htmlFor="nome">
@@ -115,18 +122,21 @@ class Registrar extends React.Component {
           <br />
           <button type="submit">Registrar funcionário</button>
         </form>
-        <Link to="/"><button type="button">Página inicial</button></Link>
       </div>
     )
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  registrandoFuncionario: (funcionario) => dispatch(adicionarFuncionario(funcionario))
+  registrandoFuncionario: (funcionario) => dispatch(adicionarFuncionario(funcionario)),
+})
+
+const mapStateToProps = (state) => ({
+  dadosFuncionarios: state.reducer.funcionarios,
 })
 
 Registrar.propTypes = {
   adicionarFuncionario: PropTypes.func.isRequired,
 }
 
-export default connect(null, mapDispatchToProps)(Registrar);
+export default connect(mapStateToProps, mapDispatchToProps)(Registrar);

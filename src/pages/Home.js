@@ -2,8 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { excluirFuncionario } from '../actions';
+import { BsXCircleFill } from 'react-icons/bs';
 
 class Home extends React.Component {
+  constructor() {
+    super();
+    this.deletarFuncionario = this.deletarFuncionario.bind(this);
+  }
+
+  deletarFuncionario(id) {
+    const { excluindoFuncionario } = this.props;
+    excluindoFuncionario(id);
+  }
+
   render() {
     const { dadosFuncionarios } = this.props;
     return (
@@ -28,6 +40,7 @@ class Home extends React.Component {
                 <th>Desconto</th>
                 <th>Dependentes</th>
                 <th>Desconto IRPF</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +52,7 @@ class Home extends React.Component {
                   <td>{ funcionario.desconto }</td>
                   <td>{ funcionario.dependentes }</td>
                   <td>{ funcionario.valorADeduzir }</td>
+                  <td><button onClick={ () => this.deletarFuncionario(funcionario.idFuncionario)}><BsXCircleFill /></button></td>
                 </tr>
               ))}
             </tbody>            
@@ -49,10 +63,14 @@ class Home extends React.Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  excluindoFuncionario: (id) => dispatch(excluirFuncionario(id)),
+})
+
 const mapStateToProps = (state) => ({
   dadosFuncionarios: state.reducer.funcionarios,
 })
 
 
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
