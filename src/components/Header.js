@@ -7,7 +7,7 @@ class Header extends React.Component {
     return (
       <div>
         <nav className="links-header">
-          <Link to="/"><button type="button" data-testid="botao-pagina-inical" className="botao-header"><BsFillHouseFill size={ 15 } /></button></Link>
+          <Link to="/"><button type="button" data-testid="botao-pagina-inical" className="botao-header"><BsFillHouseFill size={ 18 } /></button></Link>
           <Link to="/registrar"><button type="button" className="botao-header">Registrar funcionário</button></Link>
           <Link to="/tabela"><button type="button" className="botao-header">Tabelas e cálculos do IRRF</button></Link>          
         </nav>

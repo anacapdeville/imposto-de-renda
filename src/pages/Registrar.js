@@ -26,7 +26,6 @@ class Registrar extends React.Component {
     event.preventDefault();
     const { nome, cpf, salario, desconto, dependentes } = this.state;
     const salarioNumeroAmericano = parseFloat(salario.replace(',', '.'));
-    console.log('americano', salarioNumeroAmericano)
     const salarioBase = salarioNumeroAmericano - desconto - (dependentes * 164.56);
     let valorADeduzir = 0;
     if (salarioNumeroAmericano <= 1903.98) {
@@ -40,11 +39,8 @@ class Registrar extends React.Component {
     } else if (salarioNumeroAmericano > 4664.68) {
       valorADeduzir = (salarioBase * 27.5 / 100) - 869.36;
     }
-    let idFuncionario = 0;
-    const { dadosFuncionarios } = this.props;
-    if (dadosFuncionarios) {
-      idFuncionario = dadosFuncionarios.length;
-    }
+    let idFuncionario = new Date();
+
     const funcionario = { nome, cpf, salarioNumeroAmericano, desconto, dependentes, valorADeduzir, idFuncionario };
     const { registrandoFuncionario } = this.props;
     registrandoFuncionario(funcionario);
@@ -66,6 +62,7 @@ class Registrar extends React.Component {
                 name="nome"
                 onChange={this.handleChange}
                 id="nome"
+                data-testid="input-nome"
                 required
               />
             </label>
@@ -122,7 +119,13 @@ class Registrar extends React.Component {
               />
             </label>
             <br />
-            <button type="submit" data-testid="botao-registrar-funcionario">Registrar funcionário</button>
+            <button
+              type="submit"
+              data-testid="botao-registrar-funcionario"
+              className="botao-registrar-funcionario"
+            >
+              Registrar funcionário
+            </button>
           </form>
         </div>
       </div>
@@ -135,11 +138,12 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  dadosFuncionarios: state.reducer.funcionarios,
+  dadosFuncionarios: state.reducer,
 })
 
 Registrar.propTypes = {
   registrandoFuncionario: PropTypes.func.isRequired,
+  dadosFuncionarios: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registrar);

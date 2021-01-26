@@ -7,16 +7,15 @@
 
 .botao-header {
   border: none;
-  background-color: rgb(62, 117, 163);
-  margin-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 8px;
-  padding-top: 8px;
+  background-color: transparent;
+  margin-top: 12px;
+  font-size: large;
+  color: white;
+  font-weight: bold;
 }
 
 .botao-header:hover {
-  border: 1px solid black;
+  cursor: pointer;
 }
 
 input {
@@ -38,16 +37,28 @@ td, th {
 
 }
 
+th {
+  background-color: black;
+  color: white;
+}
+
 table {
   border-collapse: collapse;
 }
 
-.botao-deletar {
+.botao-deletar-editar {
   background-color: transparent;
   border: none;
 }
 
-.celula-vazia {
-  border-top: none;
-  border-right: none;
+.botao-registrar-funcionario {
+  border-radius: 10px;
+  background-color: rgb(47, 90, 125);
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.botao-registrar-funcionario:hover {
+  cursor: pointer;
 }

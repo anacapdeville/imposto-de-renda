@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { excluirFuncionario } from '../actions';
 import { BsXCircleFill } from 'react-icons/bs';
 import Header from '../components/Header';
@@ -33,28 +33,30 @@ class Home extends React.Component {
               <tr>
                 <th>Nome</th>
                 <th>CPF</th>
-                <th>Salário</th>
-                <th>Desconto</th>
+                <th>Salário bruto</th>
+                <th>Desconto da previdência</th>
                 <th>Dependentes</th>
                 <th>Desconto IRPF</th>
-                <th className="celula-vazia"></th>
+                <th>Excluir</th>
               </tr>
             </thead>
             <tbody>
               {dadosFuncionarios && dadosFuncionarios.map((funcionario) => (
-                <tr key={funcionario.nome}>
+                <tr key={funcionario.idFuncionario}>
                   <td>{funcionario.nome}</td>
                   <td>{funcionario.cpf}</td>
                   <td>{(funcionario.salarioNumeroAmericano).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
                   <td>{funcionario.desconto}</td>
                   <td>{funcionario.dependentes}</td>
                   <td>{(funcionario.valorADeduzir).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                  <td><button
-                    onClick={() => this.deletarFuncionario(funcionario.idFuncionario)}
-                    className="botao-deletar"
-                  >
-                    <BsXCircleFill />
-                  </button></td>
+                  <td>
+                    <button
+                      onClick={() => this.deletarFuncionario(funcionario.idFuncionario)}
+                      className="botao-deletar-editar"
+                    >
+                      <BsXCircleFill />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -70,9 +72,12 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  dadosFuncionarios: state.reducer.funcionarios,
+  dadosFuncionarios: state.reducer,
 })
 
-
+Home.propTypes = {
+  excluindoFuncionario: PropTypes.func.isRequired,
+  dadosFuncionarios: PropTypes.array.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
