@@ -21,8 +21,6 @@ class Home extends React.Component {
     return (
       <div>
         <Header />
-        <nav>
-        </nav>
         <section>
           <h1>Tabelas e cálculos do IRRF</h1>
           <p>A tabela do IR é um dos principais instrumentos para auxiliar os contribuintes na hora de enviar as informações fiscais para a Receita. Afinal, é nesse documento que constam as alíquotas do Imposto de Renda.</p>
@@ -44,17 +42,17 @@ class Home extends React.Component {
             </thead>
             <tbody>
               {dadosFuncionarios && dadosFuncionarios.map((funcionario) => (
-                <tr key={ funcionario.nome }>
-                  <td>{ funcionario.nome }</td>
-                  <td>{ funcionario.cpf }</td>
-                  <td>{ (funcionario.salarioNumeroAmericano).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }</td>
-                  <td>{ funcionario.desconto }</td>
-                  <td>{ funcionario.dependentes }</td>
-                  <td>{ (funcionario.valorADeduzir).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }</td>
-                  <td><button onClick={ () => this.deletarFuncionario(funcionario.idFuncionario) }><BsXCircleFill /></button></td>
+                <tr key={funcionario.nome}>
+                  <td>{funcionario.nome}</td>
+                  <td>{funcionario.cpf}</td>
+                  <td>{(funcionario.salarioNumeroAmericano).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                  <td>{funcionario.desconto}</td>
+                  <td>{funcionario.dependentes}</td>
+                  <td>{(funcionario.valorADeduzir).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
+                  <td><button onClick={() => this.deletarFuncionario(funcionario.idFuncionario)}><BsXCircleFill /></button></td>
                 </tr>
               ))}
-            </tbody>            
+            </tbody>
           </table>
         </section>
       </div>

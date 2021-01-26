@@ -25,26 +25,23 @@ class Registrar extends React.Component {
   enviandoDadosFuncionario(event) {
     event.preventDefault();
     const { nome, cpf, salario, desconto, dependentes } = this.state;
-    console.log('salario', salario);
     const salarioNumeroAmericano = parseFloat(salario.replace(',', '.'));
     console.log('americano', salarioNumeroAmericano)
     const salarioBase = salarioNumeroAmericano - desconto - (dependentes * 164.56);
-    console.log('base', salarioBase)
     let valorADeduzir = 0;
-    if(salarioNumeroAmericano <= 1903.98) {
+    if (salarioNumeroAmericano <= 1903.98) {
       valorADeduzir = 0;
-    } else if(salarioNumeroAmericano >= 1903.99 && salario <= 2826.65) {
+    } else if (salarioNumeroAmericano >= 1903.99 && salario <= 2826.65) {
       valorADeduzir = (salarioBase * 7.5 / 100) - 142.8;
-    } else if(salarioNumeroAmericano >= 2826.66 && salario <= 3751.05) {
+    } else if (salarioNumeroAmericano >= 2826.66 && salario <= 3751.05) {
       valorADeduzir = (salarioBase * 15 / 100) - 354.8;
-    } else if(salarioNumeroAmericano >= 3751.06 && salario <= 4664.68) {
+    } else if (salarioNumeroAmericano >= 3751.06 && salario <= 4664.68) {
       valorADeduzir = (salarioBase * 22.5 / 100) - 636.13;
-    } else if(salarioNumeroAmericano > 4664.68) {
+    } else if (salarioNumeroAmericano > 4664.68) {
       valorADeduzir = (salarioBase * 27.5 / 100) - 869.36;
     }
-    console.log('deducao', valorADeduzir)
     let idFuncionario = 0;
-    const { dadosFuncionarios } = this.props; 
+    const { dadosFuncionarios } = this.props;
     if (dadosFuncionarios) {
       idFuncionario = dadosFuncionarios.length;
     }
@@ -58,7 +55,7 @@ class Registrar extends React.Component {
       <div>
         <Header />
         <h1>Registrar funcionario</h1>
-        <form onSubmit={ this.enviandoDadosFuncionario }>
+        <form onSubmit={this.enviandoDadosFuncionario}>
           <label htmlFor="nome">
             Nome:
             {" "}
@@ -66,7 +63,7 @@ class Registrar extends React.Component {
               type="text"
               placeholder="Nome"
               name="nome"
-              onChange={ this.handleChange }
+              onChange={this.handleChange}
               id="nome"
               required
             />
@@ -79,7 +76,7 @@ class Registrar extends React.Component {
               type="text"
               placeholder="CPF"
               name="cpf"
-              onChange={ this.handleChange }
+              onChange={this.handleChange}
               id="cpf"
               required
             />
@@ -92,7 +89,7 @@ class Registrar extends React.Component {
               type="text"
               placeholder="Salário"
               name="salario"
-              onChange={ this.handleChange }
+              onChange={this.handleChange}
               id="salario"
               required
             />
@@ -105,7 +102,7 @@ class Registrar extends React.Component {
               type="text"
               placeholder="Desconto"
               name="desconto"
-              onChange={ this.handleChange }
+              onChange={this.handleChange}
               id="desconto"
               required
             />
@@ -118,13 +115,13 @@ class Registrar extends React.Component {
               type="number"
               placeholder="0"
               name="dependentes"
-              onChange={ this.handleChange }
+              onChange={this.handleChange}
               id="dependentes"
               required
             />
           </label>
           <br />
-          <button type="submit">Registrar funcionário</button>
+          <button type="submit" data-testid="botao-registrar-funcionario">Registrar funcionário</button>
         </form>
       </div>
     )
@@ -140,7 +137,7 @@ const mapStateToProps = (state) => ({
 })
 
 Registrar.propTypes = {
-  adicionarFuncionario: PropTypes.func.isRequired,
+  registrandoFuncionario: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registrar);

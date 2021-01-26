@@ -6,6 +6,7 @@ class Tabela extends React.Component {
     return (
       <div>
         <Header />
+        <h1>Tabela progressiva do IRRF</h1>
         <table>
           <thead>
             <tr>
