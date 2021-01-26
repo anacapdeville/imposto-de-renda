@@ -44,6 +44,10 @@ class Tabela extends React.Component {
               </tr>
             </tbody>
           </table>
+          <p>O cálculo é realizado da seguinte maneira:</p>
+          <p>Salário Base IR = Salário Bruto - Desconto da previdência - (Dedução por dependente X quantidade de dependentes)</p>
+          <p>Desconto IRRF = (Salário base IR X Alíquota) - Parcela a deduzir</p>
+          <p>O valor da dedução por dependente é R$ 164,56</p>
         </div>
       </div>
     )
