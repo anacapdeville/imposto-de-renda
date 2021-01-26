@@ -21,12 +21,12 @@ class Home extends React.Component {
     return (
       <div>
         <Header />
-        <section>
+        <section className="conteudo-paginas">
           <h1>Tabelas e cálculos do IRRF</h1>
           <p>A tabela do IR é um dos principais instrumentos para auxiliar os contribuintes na hora de enviar as informações fiscais para a Receita. Afinal, é nesse documento que constam as alíquotas do Imposto de Renda.</p>
           <p>Isso quer dizer que é essa a fonte para você saber qual é o percentual que deve ser aplicado sobre os seus rendimentos. Portanto, na hora de fazer o cálculo e declarar seus rendimentos, ter essa tabela é fundamental para que você não envie nenhum dado errado e, consequentemente, não caia na malha fina.</p>
         </section>
-        <section>
+        <section className="conteudo-paginas">
           <h1>Seus funcionários</h1>
           <table>
             <thead>
@@ -37,7 +37,7 @@ class Home extends React.Component {
                 <th>Desconto</th>
                 <th>Dependentes</th>
                 <th>Desconto IRPF</th>
-                <th></th>
+                <th className="celula-vazia"></th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +49,12 @@ class Home extends React.Component {
                   <td>{funcionario.desconto}</td>
                   <td>{funcionario.dependentes}</td>
                   <td>{(funcionario.valorADeduzir).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
-                  <td><button onClick={() => this.deletarFuncionario(funcionario.idFuncionario)}><BsXCircleFill /></button></td>
+                  <td><button
+                    onClick={() => this.deletarFuncionario(funcionario.idFuncionario)}
+                    className="botao-deletar"
+                  >
+                    <BsXCircleFill />
+                  </button></td>
                 </tr>
               ))}
             </tbody>

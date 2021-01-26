@@ -1,0 +1,53 @@
+.links-header {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(47, 90, 125);
+  height: 50px;
+}
+
+.botao-header {
+  border: none;
+  background-color: rgb(62, 117, 163);
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.botao-header:hover {
+  border: 1px solid black;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.conteudo-paginas {
+  margin-left: 30px;
+  margin-right: 300px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid rgb(210, 211, 218)
+
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.botao-deletar {
+  background-color: transparent;
+  border: none;
+}
+
+.celula-vazia {
+  border-top: none;
+  border-right: none;
+}

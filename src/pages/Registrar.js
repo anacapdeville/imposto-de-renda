@@ -54,75 +54,77 @@ class Registrar extends React.Component {
     return (
       <div>
         <Header />
-        <h1>Registrar funcionario</h1>
-        <form onSubmit={this.enviandoDadosFuncionario}>
-          <label htmlFor="nome">
-            Nome:
-            {" "}
-            <input
-              type="text"
-              placeholder="Nome"
-              name="nome"
-              onChange={this.handleChange}
-              id="nome"
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="cpf">
-            CPF:
-            {" "}
-            <input
-              type="text"
-              placeholder="CPF"
-              name="cpf"
-              onChange={this.handleChange}
-              id="cpf"
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="salario">
-            Salário bruto:
-            {" "}
-            <input
-              type="text"
-              placeholder="Salário"
-              name="salario"
-              onChange={this.handleChange}
-              id="salario"
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="desconto">
-            Desconto da previdência:
-            {" "}
-            <input
-              type="text"
-              placeholder="Desconto"
-              name="desconto"
-              onChange={this.handleChange}
-              id="desconto"
-              required
-            />
-          </label>
-          <br />
-          <label htmlFor="dependentes">
-            Número de dependentes:
-            {" "}
-            <input
-              type="number"
-              placeholder="0"
-              name="dependentes"
-              onChange={this.handleChange}
-              id="dependentes"
-              required
-            />
-          </label>
-          <br />
-          <button type="submit" data-testid="botao-registrar-funcionario">Registrar funcionário</button>
-        </form>
+        <div className="conteudo-paginas">
+          <h1>Registrar funcionario</h1>
+          <form onSubmit={this.enviandoDadosFuncionario}>
+            <label htmlFor="nome">
+              Nome:
+              {" "}
+              <input
+                type="text"
+                placeholder="Nome"
+                name="nome"
+                onChange={this.handleChange}
+                id="nome"
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="cpf">
+              CPF:
+              {" "}
+              <input
+                type="text"
+                placeholder="CPF"
+                name="cpf"
+                onChange={this.handleChange}
+                id="cpf"
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="salario">
+              Salário bruto:
+              {" "}
+              <input
+                type="text"
+                placeholder="Salário"
+                name="salario"
+                onChange={this.handleChange}
+                id="salario"
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="desconto">
+              Desconto da previdência:
+              {" "}
+              <input
+                type="text"
+                placeholder="Desconto"
+                name="desconto"
+                onChange={this.handleChange}
+                id="desconto"
+                required
+              />
+            </label>
+            <br />
+            <label htmlFor="dependentes">
+              Número de dependentes:
+              {" "}
+              <input
+                type="number"
+                placeholder="0"
+                name="dependentes"
+                onChange={this.handleChange}
+                id="dependentes"
+                required
+              />
+            </label>
+            <br />
+            <button type="submit" data-testid="botao-registrar-funcionario">Registrar funcionário</button>
+          </form>
+        </div>
       </div>
     )
   }
