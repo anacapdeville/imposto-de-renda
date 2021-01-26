@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { adicionarFuncionario } from '../actions';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { BsFillHouseFill } from 'react-icons/bs';
+import Header from '../components/Header';
 
 class Registrar extends React.Component {
   constructor() {
@@ -26,25 +25,30 @@ class Registrar extends React.Component {
   enviandoDadosFuncionario(event) {
     event.preventDefault();
     const { nome, cpf, salario, desconto, dependentes } = this.state;
-    const salarioBase = salario - desconto - (dependentes * 164.56);
+    console.log('salario', salario);
+    const salarioNumeroAmericano = parseFloat(salario.replace(',', '.'));
+    console.log('americano', salarioNumeroAmericano)
+    const salarioBase = salarioNumeroAmericano - desconto - (dependentes * 164.56);
+    console.log('base', salarioBase)
     let valorADeduzir = 0;
-    if(salario <= 1903.98) {
+    if(salarioNumeroAmericano <= 1903.98) {
       valorADeduzir = 0;
-    } else if(salario >= 1903.99 && salario <= 2826.65) {
+    } else if(salarioNumeroAmericano >= 1903.99 && salario <= 2826.65) {
       valorADeduzir = (salarioBase * 7.5 / 100) - 142.8;
-    } else if(salario >= 2826.66 && salario <= 3751.05) {
+    } else if(salarioNumeroAmericano >= 2826.66 && salario <= 3751.05) {
       valorADeduzir = (salarioBase * 15 / 100) - 354.8;
-    } else if(salario >= 3751.06 && salario <= 4664.68) {
+    } else if(salarioNumeroAmericano >= 3751.06 && salario <= 4664.68) {
       valorADeduzir = (salarioBase * 22.5 / 100) - 636.13;
-    } else if(salario > 4664.68) {
+    } else if(salarioNumeroAmericano > 4664.68) {
       valorADeduzir = (salarioBase * 27.5 / 100) - 869.36;
     }
+    console.log('deducao', valorADeduzir)
     let idFuncionario = 0;
     const { dadosFuncionarios } = this.props; 
     if (dadosFuncionarios) {
       idFuncionario = dadosFuncionarios.length;
     }
-    const funcionario = { nome, cpf, salario, desconto, dependentes, valorADeduzir, idFuncionario };
+    const funcionario = { nome, cpf, salarioNumeroAmericano, desconto, dependentes, valorADeduzir, idFuncionario };
     const { registrandoFuncionario } = this.props;
     registrandoFuncionario(funcionario);
   }
@@ -52,7 +56,7 @@ class Registrar extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/"><button type="button"><BsFillHouseFill size={ 20 } /></button></Link>
+        <Header />
         <h1>Registrar funcionario</h1>
         <form onSubmit={ this.enviandoDadosFuncionario }>
           <label htmlFor="nome">
@@ -85,7 +89,7 @@ class Registrar extends React.Component {
             Salário bruto:
             {" "}
             <input
-              type="number"
+              type="text"
               placeholder="Salário"
               name="salario"
               onChange={ this.handleChange }

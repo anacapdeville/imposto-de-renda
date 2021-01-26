@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { excluirFuncionario } from '../actions';
 import { BsXCircleFill } from 'react-icons/bs';
+import Header from '../components/Header';
 
 class Home extends React.Component {
   constructor() {
@@ -20,9 +20,8 @@ class Home extends React.Component {
     const { dadosFuncionarios } = this.props;
     return (
       <div>
+        <Header />
         <nav>
-          <Link to="/registrar"><button type="button">Registrar funcionário</button></Link>
-          <button type="button">Tabelas e cálculos do IRRF</button>
         </nav>
         <section>
           <h1>Tabelas e cálculos do IRRF</h1>
@@ -48,11 +47,11 @@ class Home extends React.Component {
                 <tr key={ funcionario.nome }>
                   <td>{ funcionario.nome }</td>
                   <td>{ funcionario.cpf }</td>
-                  <td>{ funcionario.salario }</td>
+                  <td>{ (funcionario.salarioNumeroAmericano).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }</td>
                   <td>{ funcionario.desconto }</td>
                   <td>{ funcionario.dependentes }</td>
-                  <td>{ funcionario.valorADeduzir }</td>
-                  <td><button onClick={ () => this.deletarFuncionario(funcionario.idFuncionario)}><BsXCircleFill /></button></td>
+                  <td>{ (funcionario.valorADeduzir).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }</td>
+                  <td><button onClick={ () => this.deletarFuncionario(funcionario.idFuncionario) }><BsXCircleFill /></button></td>
                 </tr>
               ))}
             </tbody>            

@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home'
 import Registrar from './pages/Registrar';
-import Tabelas from './pages/Tabelas';
+import Tabela from './pages/Tabela';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route exact path="/registrar" component={ Registrar } />
-        <Route exact path="/tabelas" component={ Tabelas } />
+        <Route exact path="/tabela" component={ Tabela } />
       </Switch>
     </div>
   );
