@@ -15,7 +15,7 @@ Esse projeto permite fazer o cálculo de imposto de renda retido na fonte (IRRF)
 ##### Tela da página de registrar funcionário:
 ![pagina-registrar](https://github.com/anacapdeville/imposto-de-renda/blob/master/images/registrar.png?raw=true)
 ##### Tela da página com tabela do IRRF:
-![pagina-tabela](https://github.com/anacapdeville/imposto-de-renda/blob/master/images/tabela.png?raw=true)
+![pagina-tabela](https://github.com/anacapdeville/imposto-de-renda/blob/master/images/tabela2.png?raw=true)
 
 ## Instalação
 1. Acesse o terminal e clone o projeto:
