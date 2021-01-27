@@ -8,7 +8,7 @@ import store from './store';
 const renderWithRouter = (component) => {
   const history = createMemoryHistory();
   return ({
-    ...render(<Provider store={ store }><Router history={ history }>{ component }</Router></Provider>), history,
+    ...render(<Provider store={store}><Router history={history}>{component}</Router></Provider>), history,
   });
 };
 

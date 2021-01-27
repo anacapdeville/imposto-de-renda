@@ -1,8 +1,8 @@
 .links-header {
   background-color: rgb(47, 90, 125);
   display: flex;
-  justify-content: space-around;
   height: 50px;
+  justify-content: space-around;
 }
 
 .botao-header {

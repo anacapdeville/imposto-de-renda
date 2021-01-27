@@ -89,7 +89,7 @@ test('a página de registrar funcionário possui quatro campos input de texto e 
 });
 
 test('a página com a tabela do IRRF possui botões que direcionam para página de adicionar funcionário e para a página inicial', () => {
-  const { getByRole, getByText, getByTestId } = renderWithRouter(<App />);
+  const { getByRole, getByTestId } = renderWithRouter(<App />);
 
   const botaoParaTabela = screen.getByRole('button', { name: 'Tabelas e cálculos do IRRF' });
   fireEvent.click(botaoParaTabela);

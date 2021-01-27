@@ -13,7 +13,7 @@ class Header extends React.Component {
               data-testid="botao-pagina-inical"
               className="botao-header"
             >
-              <BsFillHouseFill size={ 18 } />
+              <BsFillHouseFill size={18} />
             </button>
           </Link>
           <Link to="/registrar">
@@ -21,7 +21,7 @@ class Header extends React.Component {
           </Link>
           <Link to="/tabela">
             <button type="button" className="botao-header">Tabelas e cálculos do IRRF</button>
-          </Link>          
+          </Link>
         </nav>
       </div>
     );
