@@ -1,17 +1,17 @@
 .links-header {
+  background-color: rgb(47, 90, 125);
   display: flex;
   justify-content: space-around;
-  background-color: rgb(47, 90, 125);
   height: 50px;
 }
 
 .botao-header {
-  border: none;
   background-color: transparent;
-  margin-top: 12px;
-  font-size: large;
+  border: none;
   color: white;
+  font-size: large;
   font-weight: bold;
+  margin-top: 12px;
 }
 
 .botao-header:hover {
@@ -32,9 +32,8 @@ body {
 }
 
 td, th {
+  border: 1px solid rgb(210, 211, 218);
   padding: 10px;
-  border: 1px solid rgb(210, 211, 218)
-
 }
 
 th {
@@ -52,11 +51,11 @@ table {
 }
 
 .botao-registrar-funcionario {
-  border-radius: 10px;
   background-color: rgb(47, 90, 125);
+  border-radius: 10px;
   color: white;
-  padding: 10px;
   font-weight: bold;
+  padding: 10px;
 }
 
 .botao-registrar-funcionario:hover {

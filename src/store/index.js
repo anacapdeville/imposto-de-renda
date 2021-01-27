@@ -1,7 +1,5 @@
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, compose } from 'redux';
 import reducer from '../reducer';
-
-const rootReducer = combineReducers({ reducer })
 
 const composeWithDevTools = (
   typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -13,6 +11,6 @@ const composeWithDevTools = (
     }
 );
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools());
 
 export default store;

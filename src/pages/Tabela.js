@@ -50,7 +50,7 @@ class Tabela extends React.Component {
           <p>O valor da dedução por dependente é R$ 164,56</p>
         </div>
       </div>
-    )
+    );
   }
 }
 

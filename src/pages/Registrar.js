@@ -13,7 +13,7 @@ class Registrar extends React.Component {
       salário: 0,
       desconto: '',
       dependentes: 0,
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.enviandoDadosFuncionario = this.enviandoDadosFuncionario.bind(this);
   }
@@ -28,6 +28,7 @@ class Registrar extends React.Component {
     const salarioNumeroAmericano = parseFloat(salario.replace(',', '.'));
     const salarioBase = salarioNumeroAmericano - desconto - (dependentes * 164.56);
     let valorADeduzir = 0;
+
     if (salarioNumeroAmericano <= 1903.98) {
       valorADeduzir = 0;
     } else if (salarioNumeroAmericano >= 1903.99 && salario <= 2826.65) {
@@ -39,6 +40,11 @@ class Registrar extends React.Component {
     } else if (salarioNumeroAmericano > 4664.68) {
       valorADeduzir = (salarioBase * 27.5 / 100) - 869.36;
     }
+
+    if (valorADeduzir < 0) {
+      valorADeduzir = 0;
+    }
+
     let idFuncionario = new Date();
 
     const funcionario = { nome, cpf, salarioNumeroAmericano, desconto, dependentes, valorADeduzir, idFuncionario };
@@ -129,7 +135,7 @@ class Registrar extends React.Component {
           </form>
         </div>
       </div>
-    )
+    );
   }
 }
 

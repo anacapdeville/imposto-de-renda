@@ -72,7 +72,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  dadosFuncionarios: state.reducer,
+  dadosFuncionarios: state,
 })
 
 Home.propTypes = {
