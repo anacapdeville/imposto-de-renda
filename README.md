@@ -36,6 +36,6 @@ npm start
 ```
 
 ## Como usar
-A página inicial fornece algumas informações sobre o IRRF e a tabela com os dados dos funcionários. Para registrar um novo funcionário clique em "Registrar funcionário" na parte superior da tela. Abrirá uma página com um formulário para ser preenchido com os dados do funcionário. Após preencher todo o formulário clique no botão "Registrar funcionário" que está abaixo do formulário. Para verificar a informação preenchida vá para a página inicial clicando no ícone de home na parte superior da tela. Para ver a tabela do IRRF
+A página inicial fornece algumas informações sobre o IRRF e a tabela com os dados dos funcionários. Para registrar um novo funcionário clique em "Registrar funcionário" na parte superior da tela. Abrirá uma página com um formulário para ser preenchido com os dados do funcionário. Após preencher todo o formulário clique no botão "Registrar funcionário" que está abaixo do formulário. Para verificar a informação preenchida vá para a página inicial clicando no ícone de home na parte superior da tela. Para ver a tabela do IRRF clique em "Tabelas e cálculos do IRRF" na parte superior da tela.
 ## Tecnologias
 Esse projeto foi desenvolvido em React, utilizando Redux para controle de estado e React Router para controle da navegação. Para obter ícones foi utilizada a biblioteca React Icons.
